@@ -476,7 +476,7 @@ void UIDrawInputbox(int UIEId) {
   Busy = false;
 }
 
-void UITextbox(int x, int y, int width, int height, String layer, String *rootVar, int color) {
+void UITextbox(int x, int y, int width, int height, int color, String layer, String *rootVar) {
   int lastElementId = 0;
   for (; lastElementId < UIElementsSize; lastElementId++)
   {

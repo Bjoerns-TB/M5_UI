@@ -74,7 +74,7 @@ void UIInputboxCallout(int, char);
 void UIInputbox(int, int, int, String, String, pFuncStrP, String*);
 void UIInputbox(int, int, int, String, String, String*);
 void UIDrawInputbox(int);
-void UITextbox(int, int, int, int, String, String*, int);
+void UITextbox(int, int, int, int, int, String, String*);
 void UIDrawTextbox(int);
 void UIWaitingbar(int, int, int, String, String, String*);
 void UIDrawWaitingbar(int, char);
