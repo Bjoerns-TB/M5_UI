@@ -585,7 +585,7 @@ void UIProgressbar(int x, int y, int width, String layer, String caption, String
     if (UIElements[lastElementId].layer == "") break;
   }
   UIElements[lastElementId].autonomous = false;
-  UIElements[lastElementId].disabled = true;
+  UIElements[lastElementId].disabled = false;
   UIElements[lastElementId].focus = -1;
   UIElements[lastElementId].x = x;
   UIElements[lastElementId].y = y;
