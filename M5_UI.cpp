@@ -589,7 +589,7 @@ void UIProgressbar(int x, int y, int width, String layer, String caption, String
   UIElements[lastElementId].focus = -1;
   UIElements[lastElementId].x = x;
   UIElements[lastElementId].y = y;
-  UIElements[lastElementId].width = (width < 12) ? 12 : width;
+  UIElements[lastElementId].width = (width < 37) ? 37 : width;
   UIElements[lastElementId].height = 50;
   UIElements[lastElementId].colorB = rgbTo565(51, 51, 51);
   UIElements[lastElementId].color = rgbTo565(255, 0, 204);
