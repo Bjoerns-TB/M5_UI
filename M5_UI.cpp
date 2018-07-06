@@ -677,7 +677,7 @@ void UISelectboxCallout(int UIEId, char arrowKeyCode) {
     (*UIElements[UIEId].callback)(UIElements[UIEId].rootVar);
 }
 
-void UISelectbox(int x, int y, int width, String layer, String caption, pFuncStrP callback, String *rootVar) {
+void UISelectbox(int x, int y, int width, String layer, String caption, pFuncStrP callback, String* rootVar) {
   int lastElementId = 0;
   for (; lastElementId < UIElementsSize; lastElementId++)
   {
