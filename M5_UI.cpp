@@ -164,7 +164,7 @@ void UILayer(String layer) {
     {
       if (UIElements[i].layer == layer)
       {
-         if (UIElements[i].focus == 1)
+         //if (UIElements[i].focus == 1)
          {
           UIUpdate();
           return;
