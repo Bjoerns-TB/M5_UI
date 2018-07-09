@@ -459,7 +459,7 @@ void UIDrawInputbox(int UIEId) {
     M5.Lcd.fillRect(UIElements[UIEId].x, UIElements[UIEId].y, UIElements[UIEId].width, UIElements[UIEId].height, 0xffff);
     M5.Lcd.setTextSize(2);
     M5.Lcd.setTextColor(UIElements[UIEId].colorB);
-    M5.Lcd.setCursor(UIElements[UIEId].x, UIElements[UIEId].y);
+    M5.Lcd.setCursor(UIElements[UIEId].x, UIElements[UIEId].y + 1);
     M5.Lcd.print(UIElements[UIEId].caption);
     //M5.Lcd.fillRect(UIElements[UIEId].x, (UIElements[UIEId].y + 18), UIElements[UIEId].width, 32, rgbTo565(255, 255, 255));
     if (UIElements[UIEId].focus == 1)
@@ -558,7 +558,7 @@ void UIDrawWaitingbar(int UIEId, char empty) {
   Busy = true;
     M5.Lcd.setTextSize(2);
     M5.Lcd.setTextColor(rgbTo565(51, 51, 51));
-    M5.Lcd.setCursor(UIElements[UIEId].x, UIElements[UIEId].y);
+    M5.Lcd.setCursor(UIElements[UIEId].x, UIElements[UIEId].y + 1);
     M5.Lcd.print(UIElements[UIEId].caption);
     int boxWidth = UIElements[UIEId].width / 10; 
     M5.Lcd.fillRect(UIElements[UIEId].x, (UIElements[UIEId].y + 18), UIElements[UIEId].width, 32, UIElements[UIEId].colorB);
@@ -610,7 +610,7 @@ void UIDrawProgressbar(int UIEId) {
   Busy = true;
     M5.Lcd.setTextSize(2);
     M5.Lcd.setTextColor(UIElements[UIEId].colorB);
-    M5.Lcd.setCursor(UIElements[UIEId].x, UIElements[UIEId].y);
+    M5.Lcd.setCursor(UIElements[UIEId].x, UIElements[UIEId].y + 1);
     M5.Lcd.print(UIElements[UIEId].caption);
     int v = (*UIElements[UIEId].rootVar).toInt();
     v = (v < 0) ? 0 : v;
@@ -712,7 +712,7 @@ void UIDrawSelectbox(int UIEId) {
     M5.Lcd.fillRect(UIElements[UIEId].x, UIElements[UIEId].y, UIElements[UIEId].width, UIElements[UIEId].height, 0xffff);
     M5.Lcd.setTextSize(2);
     M5.Lcd.setTextColor(UIElements[UIEId].colorB);
-    M5.Lcd.setCursor(UIElements[UIEId].x, UIElements[UIEId].y);
+    M5.Lcd.setCursor(UIElements[UIEId].x, UIElements[UIEId].y + 1);
     M5.Lcd.print(UIElements[UIEId].caption);
     if (UIElements[UIEId].focus == 1)
     {
@@ -754,7 +754,7 @@ void UICheckboxCallout(int UIEId, char keyCode) {
     (*UIElements[UIEId].callback)(UIElements[UIEId].rootVar);
 }
 
-void UICheckbox(int x, int y, int width, String layer, String caption, pFuncStrP callback, String *rootVar) {
+void UICheckbox(int x, int y, int width, String layer, String caption, pFuncStrP callback, String* rootVar) {
   int lastElementId = 0;
   for (; lastElementId < UIElementsSize; lastElementId++)
   {
@@ -955,7 +955,7 @@ void UIDrawRangebox(int UIEId) {
     M5.Lcd.fillRect(UIElements[UIEId].x, UIElements[UIEId].y, UIElements[UIEId].width, UIElements[UIEId].height, 0xffff);
     M5.Lcd.setTextSize(2);
     M5.Lcd.setTextColor(UIElements[UIEId].colorB);
-    M5.Lcd.setCursor(UIElements[UIEId].x, UIElements[UIEId].y);
+    M5.Lcd.setCursor(UIElements[UIEId].x, UIElements[UIEId].y + 1);
     M5.Lcd.print(UIElements[UIEId].caption);
     M5.Lcd.fillRect(UIElements[UIEId].x, (UIElements[UIEId].y + 34), UIElements[UIEId].width, 2, UIElements[UIEId].colorB);
     int minAbs = abs(UIElements[UIEId].etcInt2);
