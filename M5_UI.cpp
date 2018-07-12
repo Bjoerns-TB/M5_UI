@@ -914,7 +914,7 @@ void UIRangeboxCallout(int UIEId, char c) {
     (*UIElements[UIEId].callback)(UIElements[UIEId].rootVar);
 }
 
-void UIRangebox(int x, int y, int width, int Min, int Max, int Step, String layer, String caption, pFuncStrP callback, String *rootVar) {
+void UIRangebox(int x, int y, int width, int min, int max, int step, String layer, String caption, pFuncStrP callback, String *rootVar) {
   int lastElementId = 0;
   for (; lastElementId < UIElementsSize; lastElementId++)
   {
@@ -930,9 +930,9 @@ void UIRangebox(int x, int y, int width, int Min, int Max, int Step, String laye
   UIElements[lastElementId].colorS = rgbTo565(0, 204, 255);
   UIElements[lastElementId].colorB = rgbTo565(51, 51, 51);
   UIElements[lastElementId].etcInt = 24; // высота метки, а ширина 1/8 от высоты
-  UIElements[lastElementId].etcInt2 = Min; // мин
-  UIElements[lastElementId].etcInt3 = Max; // макс
-  UIElements[lastElementId].etcInt4 = Step; // шаг
+  UIElements[lastElementId].etcInt2 = min; // мин
+  UIElements[lastElementId].etcInt3 = max; // макс
+  UIElements[lastElementId].etcInt4 = step; // шаг
   UIElements[lastElementId].type = "rangebox";
   UIElements[lastElementId].layer = layer;
   int k_ = round(UIElements[lastElementId].width / Char2Width) - 1;
@@ -945,8 +945,8 @@ void UIRangebox(int x, int y, int width, int Min, int Max, int Step, String laye
   UIElements[lastElementId].callback = callback;
 }
 
-void UIRangebox(int x, int y, int width, int Min, int Max, int Step, String layer, String caption, String *rootVar) {
-  UIRangebox(x, y, width, Min, Max, Step, layer, caption, 0, rootVar);
+void UIRangebox(int x, int y, int width, int min, int max, int step, String layer, String caption, String* rootVar) {
+  UIRangebox(x, y, width, min, max, step, layer, caption, 0, rootVar);
 }
 
 void UIDrawRangebox(int UIEId) {
