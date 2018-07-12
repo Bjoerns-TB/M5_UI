@@ -961,9 +961,8 @@ void UIDrawRangebox(int UIEId) {
     int minAbs = abs(UIElements[UIEId].etcInt2);
     int v = (*UIElements[UIEId].rootVar).toInt() + minAbs;
     int Max = UIElements[UIEId].etcInt3 + minAbs;
-    int x = (v * UIElements[UIEId].width) / Max;
+    int x = (v * (UIElements[UIEId].width - UIElements[UIEId].etcInt)) / Max;
     int mWidth = UIElements[UIEId].etcInt / 8;
-    if (v >= Max) x = UIElements[UIEId].width - mWidth;
     if (UIElements[UIEId].focus == 1)
       M5.Lcd.fillRect((UIElements[UIEId].x + x), (UIElements[UIEId].y + 34 - (UIElements[UIEId].etcInt / 2)), mWidth, UIElements[UIEId].etcInt, UIElements[UIEId].colorS);
     else
