@@ -19,6 +19,7 @@ void LayerFunction_default(String* rootVar) {
 
 /* Function for layer second: */
 void LayerFunction_second(String* rootVar) {
+ /* Set value for UITextbox from UIInputboxes */
  UISet(&UITextbox_kz6cc2s, UITextbox_kz6cc2s + " " + UIInputbox_pxf2xjc + " " + UIInputbox_0wfkvpf + "!");
  /* UI Elements */
  UITextbox(10,35,300,20,0x0000,"second",&UITextbox_kz6cc2s);
