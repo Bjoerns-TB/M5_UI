@@ -146,9 +146,9 @@ void UIUpdate() {
     { 
       if (!UIElements[i].disabled)
       {
-        if (UIElements[i].render)
+  		if (UIElements[i].render)
         {
-          (*UIElements[i].render)(i);
+        	(*UIElements[i].render)(i);
         }
       }
     }
@@ -156,22 +156,11 @@ void UIUpdate() {
 }
 
 void UILayer(String layer) {
-  if (activeLayer != "") UIEraseLayer();
-  activeLayer = layer;
-  for (int i = 0; i < UIElementsSize; i++)
+  if (activeLayer != "")
   {
-    if (!UIElements[i].disabled)
-    {
-      if (UIElements[i].layer == layer)
-      {
-         //if (UIElements[i].focus == 1)
-         {
-          UIUpdate();
-          return;
-         }
-      }
-    }
+  	UIEraseLayer();
   }
+  activeLayer = layer;
   UITab();
 }
 
@@ -193,7 +182,7 @@ void UIEraseLayer() {
   {
     if (UIElements[i].layer == activeLayer)
     {
-      M5.Lcd.fillRect(UIElements[i].x, UIElements[i].y, UIElements[i].width, UIElements[i].height, rgbTo565(255, 255, 255));
+      M5.Lcd.fillRect(UIElements[i].x, UIElements[i].y, UIElements[i].width, UIElements[i].height, 0xffff);
     }
   }
 }
@@ -301,7 +290,7 @@ void UITab() {
     }
     for ( ; i < UIElementsSize; i++)
     {
-      if ((UIElements[i].layer == activeLayer) && (UIElements[i].focus > -1) && (!UIElements[i].disabled))
+      if ((UIElements[i].layer == activeLayer) && (!UIElements[i].disabled) && (UIElements[i].focus > -1)) 
       {
         if (j == -2)
         {
@@ -808,13 +797,23 @@ void UIButtonCallout(int UIEId, char keyCode) {
   if (keyCode == ' ')
   {
     *UIElements[UIEId].rootVar = "true"; 
-    if (UIElements[UIEId].render)
-      (*UIElements[UIEId].render)(UIEId);
+    if (UIElements[UIEId].layer == activeLayer)
+    {
+    	if (UIElements[UIEId].render)
+	    {
+	      (*UIElements[UIEId].render)(UIEId);
+	    }
+  	}
     if (UIElements[UIEId].callback)
       (*UIElements[UIEId].callback)(UIElements[UIEId].rootVar);
     *UIElements[UIEId].rootVar = "false"; 
-    if (UIElements[UIEId].render)
-      (*UIElements[UIEId].render)(UIEId);
+    if (UIElements[UIEId].layer == activeLayer)
+    {
+    	if (UIElements[UIEId].render)
+	    {
+	      (*UIElements[UIEId].render)(UIEId);
+	    }
+  	}
   }
 }
 
@@ -948,17 +947,6 @@ void UIRangebox(int x, int y, int width, int min, int max, int step, String laye
 void UIRangebox(int x, int y, int width, int min, int max, int step, String layer, String caption, String* rootVar) {
   UIRangebox(x, y, width, min, max, step, layer, caption, 0, rootVar);
 }
-
-/*
-	var valueBoxWidth = parseInt($(element).find("." + class_ + "-value-box").css("width"));
-	var minAbs = Math.abs(properties.min);
-    var v = tmp + minAbs;
-    var Max = properties.max + minAbs;
-    var x = (v * (properties.width - valueBoxWidth)) / Max;
-    var mWidth = valueBoxWidth / 8;
-	$(element).find("." + class_ + "-value-box").css("marginLeft", x);
-	element.trigger("eventFamily", [widget, properties]); // показать свойства
-*/
 
 void UIDrawRangebox(int UIEId) {
   while (Busy) delay(5);
