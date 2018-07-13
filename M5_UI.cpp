@@ -161,6 +161,7 @@ void UILayer(String layer) {
   	UIEraseLayer();
   }
   activeLayer = layer;
+  UIUpdate();
   UITab();
 }
 
