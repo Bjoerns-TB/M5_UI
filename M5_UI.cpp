@@ -949,6 +949,17 @@ void UIRangebox(int x, int y, int width, int min, int max, int step, String laye
   UIRangebox(x, y, width, min, max, step, layer, caption, 0, rootVar);
 }
 
+/*
+	var valueBoxWidth = parseInt($(element).find("." + class_ + "-value-box").css("width"));
+	var minAbs = Math.abs(properties.min);
+    var v = tmp + minAbs;
+    var Max = properties.max + minAbs;
+    var x = (v * (properties.width - valueBoxWidth)) / Max;
+    var mWidth = valueBoxWidth / 8;
+	$(element).find("." + class_ + "-value-box").css("marginLeft", x);
+	element.trigger("eventFamily", [widget, properties]); // показать свойства
+*/
+
 void UIDrawRangebox(int UIEId) {
   while (Busy) delay(5);
   Busy = true;
@@ -961,11 +972,11 @@ void UIDrawRangebox(int UIEId) {
     int minAbs = abs(UIElements[UIEId].etcInt2);
     int v = (*UIElements[UIEId].rootVar).toInt() + minAbs;
     int Max = UIElements[UIEId].etcInt3 + minAbs;
-    int x = (v * (UIElements[UIEId].width - UIElements[UIEId].etcInt)) / Max;
-    int mWidth = UIElements[UIEId].etcInt / 8;
+    int valueBoxWidth = UIElements[UIEId].etcInt / 8;
+    int x = (v * (UIElements[UIEId].width - valueBoxWidth)) / Max;
     if (UIElements[UIEId].focus == 1)
-      M5.Lcd.fillRect((UIElements[UIEId].x + x), (UIElements[UIEId].y + 34 - (UIElements[UIEId].etcInt / 2)), mWidth, UIElements[UIEId].etcInt, UIElements[UIEId].colorS);
+      M5.Lcd.fillRect((UIElements[UIEId].x + x), (UIElements[UIEId].y + 34 - (UIElements[UIEId].etcInt / 2)), valueBoxWidth, UIElements[UIEId].etcInt, UIElements[UIEId].colorS);
     else
-      M5.Lcd.fillRect((UIElements[UIEId].x + x), (UIElements[UIEId].y + 34 - (UIElements[UIEId].etcInt / 2)), mWidth, UIElements[UIEId].etcInt, UIElements[UIEId].colorB);
+      M5.Lcd.fillRect((UIElements[UIEId].x + x), (UIElements[UIEId].y + 34 - (UIElements[UIEId].etcInt / 2)), valueBoxWidth, UIElements[UIEId].etcInt, UIElements[UIEId].colorB);
   Busy = false;
 }
