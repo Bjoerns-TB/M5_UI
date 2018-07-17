@@ -1,7 +1,7 @@
 #include "M5_UI.h"
 
 bool Busy = false;
-pfunc UIEnter = UIEmpty;
+pFuncStrP UIEnter = UIEmpty;
 unsigned long UIPrevTime = 0;
 unsigned long UICurrentTime;
 unsigned long UITimecastInterval = 100;
@@ -201,7 +201,7 @@ void UIController(void *pvParameters) {
           if (key_val > 20 && key_val < 0x7F) UIAddChar(key_val);
           if (key_val == 0x08) UIBackspace(); // Backspace
           if (key_val == 0xBA) UITab(); // TAB
-          if (key_val == 0x0D) (*UIEnter)(); // Enter
+          if (key_val == 0x0D) (*UIEnter)(0); // Enter
           if (key_val == 0xB7) UIArrows(key_val); // Up
           if (key_val == 0xC0) UIArrows(key_val); // Down
           if (key_val == 0xBF) UIArrows(key_val); // Left
@@ -336,7 +336,7 @@ void UIBackspace() {
   }
 }
 
-void UIEmpty() {
+void UIEmpty(String* rootVar) {
   delay(1);
 }
 

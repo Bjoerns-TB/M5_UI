@@ -11,7 +11,7 @@
 #define Char2Height 20
 #define UIElementsSize 100
 
-typedef void (*pfunc)(void);
+//typedef void (*pfunc)(void);
 typedef void (*pFuncInt)(int);
 typedef void (*pFuncIntChar)(int, char);
 typedef void (*pFuncStrP)(String*);
@@ -61,7 +61,8 @@ void UIAddChar(char);
 void UIFocus(String*);
 void UITab();
 void UIBackspace();
-void UIEmpty();
+// void UIEmpty();
+void UIEmpty(String* rootVar);
 void UIArrows(int);
 void UISet(String*, String);
 void UISet(String*, int);
@@ -95,7 +96,7 @@ void UIRangeboxCallout(int, char);
 void UIRangebox(int, int, int, int, int, int, String, String, pFuncStrP, String*);
 void UIRangebox(int, int, int, int, int, int, String, String, String*);
 void UIDrawRangebox(int);
-extern pfunc UIEnter;
+extern pFuncStrP UIEnter;
 
 extern const unsigned char ICON_0_24[1152];
 extern const unsigned char ICON_1_24[1152];
