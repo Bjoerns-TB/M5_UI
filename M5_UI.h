@@ -61,7 +61,6 @@ void UIAddChar(char);
 void UIFocus(String*);
 void UITab();
 void UIBackspace();
-// void UIEmpty();
 void UIEmpty(String* rootVar);
 void UIArrows(int);
 void UISet(String*, String);

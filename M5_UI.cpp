@@ -214,7 +214,7 @@ void UIController(void *pvParameters) {
   }
 }
 
-void UIContollerSubThread(void *pvParameters) {
+void UIContollerSubThread(void* pvParameters) {
   while (true)
   {
     UICurrentTime = millis();
@@ -291,7 +291,7 @@ void UITab() {
     }
     for ( ; i < UIElementsSize; i++)
     {
-      if ((UIElements[i].layer == activeLayer) && (!UIElements[i].disabled) && (UIElements[i].focus > -1)) 
+      if ((UIElements[i].layer == activeLayer) && (!UIElements[i].disabled) && (UIElements[i].focus >= -1)) 
       {
         if (j == -2)
         {
