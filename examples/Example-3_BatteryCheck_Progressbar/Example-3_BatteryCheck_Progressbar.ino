@@ -19,7 +19,7 @@ void LayerFunction_default(String* rootVar) {
  /* To open this layer use: */
  UILayer("default");
  // BattaryCheck
- while(true) {
+ while (true) {
   int voltage = analogRead(35) * 3400 / 4096;
   int percentage = voltage * 100 / 1600;
   UISet(&UIProgressbar_1mlmhcu, percentage);

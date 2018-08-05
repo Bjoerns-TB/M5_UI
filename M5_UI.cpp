@@ -291,7 +291,7 @@ void UITab() {
     }
     for ( ; i < UIElementsSize; i++)
     {
-      if ((UIElements[i].layer == activeLayer) && (!UIElements[i].disabled) && (UIElements[i].focus >= -1)) 
+      if ((UIElements[i].layer == activeLayer) && (!UIElements[i].disabled) && (UIElements[i].focus > -1)) // (UIElements[i].focus >= -1)
       {
         if (j == -2)
         {
@@ -380,6 +380,18 @@ void UIDisable(bool Mode, String* rootVar) {
 void UIOption(String label, String value, String* root) {
   String selected = (*root == "") ? "true" : "false";
   *root += (label + (char)0x1F + value + (char)0x1F + selected + (char)0x1F + (char)0x1E);
+}
+
+String UIOptionValue(String* rootVar) {
+	int optionsCount = cntChar(*rootVar, (char)0x1E);
+    for (int i = 0; i < optionsCount; i++)
+    {
+      String selected = parseString(2, (char)0x1F, parseString(i, (char)0x1E, *rootVar));
+      if (selected == "true")
+      {
+        return parseString(1, (char)0x1F, parseString(i, (char)0x1E, *rootVar));
+      }
+    }
 }
 
 void UICaption(String caption, String* rootVar) {
