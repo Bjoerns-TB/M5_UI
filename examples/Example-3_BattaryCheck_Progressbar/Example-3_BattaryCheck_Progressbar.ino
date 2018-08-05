@@ -3,8 +3,8 @@
 
 /* RootVar's for UI elements (note: not edit manually) */
 String UIProgressbar_1mlmhcu = "0";
-String UITextbox_f2hpjlm = "Example #3. BattaryCheck";
-String UITextbox_1g50hx5 = "Progressbar";
+String UITextbox_f2hpjlm = "Example #3. BatteryCheck";
+String UITextbox_1g50hx5 = "Percentage";
 String UITextbox_wm0ptf8 = "Voltage, mV:";
 String UITextbox_gtaetjh = "0";
 
