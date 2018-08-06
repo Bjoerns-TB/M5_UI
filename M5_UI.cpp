@@ -291,7 +291,7 @@ void UITab() {
     }
     for ( ; i < UIElementsSize; i++)
     {
-      if ((UIElements[i].layer == activeLayer) && (!UIElements[i].disabled) && (UIElements[i].focus > -1)) // (UIElements[i].focus >= -1)
+      if ((UIElements[i].layer == activeLayer) && (!UIElements[i].disabled) && (UIElements[i].type != "textbox"))
       {
         if (j == -2)
         {
@@ -320,6 +320,7 @@ void UITab() {
     }
   }
 }
+
 
 void UIBackspace() { 
   for (int i = 0; i < UIElementsSize; i++)
