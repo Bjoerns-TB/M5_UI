@@ -291,7 +291,7 @@ void UITab() {
     }
     for ( ; i < UIElementsSize; i++)
     {
-      if ((UIElements[i].layer == activeLayer) && (!UIElements[i].disabled) && (UIElements[i].type != "textbox"))
+      if ((UIElements[i].layer == activeLayer) && (!UIElements[i].disabled) && (UIElements[i].focus > -2))
       {
         if (j == -2)
         {
@@ -487,7 +487,7 @@ void UITextbox(int x, int y, int width, int height, int color, String layer, Str
   }
   UIElements[lastElementId].autonomous = false;
   UIElements[lastElementId].disabled = false;
-  UIElements[lastElementId].focus = -1;
+  UIElements[lastElementId].focus = -2;
   UIElements[lastElementId].x = x;
   UIElements[lastElementId].y = y;
   UIElements[lastElementId].width = (width < Char2Width) ? Char2Width : width;
