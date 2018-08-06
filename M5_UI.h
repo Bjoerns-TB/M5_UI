@@ -3,6 +3,7 @@
 
 #include <M5Stack.h> 
 #include <Wire.h>
+#include <driver/dac.h>
 
 #define KEYBOARD_I2C_ADDR 0X88
 #define KEYBOARD_INT 5
