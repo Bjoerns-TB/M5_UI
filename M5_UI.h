@@ -11,6 +11,9 @@
 #define Char3Width 16
 #define Char2Height 20
 #define UIElementsSize 100
+#define ButtonA 39
+#define ButtonB 38
+#define ButtonC 37
 
 //typedef void (*pfunc)(void);
 typedef void (*pFuncInt)(int);
