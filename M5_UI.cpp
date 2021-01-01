@@ -619,10 +619,12 @@ void UIProgressbar(int x, int y, int width, String layer, String caption, String
   UIElements[lastElementId].width = (width < 37) ? 37 : width;
   UIElements[lastElementId].height = 50;
   UIElements[lastElementId].colorB = rgbTo565(51, 51, 51);
-  UIElements[lastElementId].color = rgbTo565(255, 0, 204);
-  UIElements[lastElementId].color2 = rgbTo565(255, 240, 0);
+  UIElements[lastElementId].color = rgbTo565(0, 204, 255);
+  UIElements[lastElementId].color2 = rgbTo565(125, 255, 255);
   UIElements[lastElementId].color3 = rgbTo565(0, 255, 102);
-  UIElements[lastElementId].color4 = rgbTo565(0, 204, 255);
+  UIElements[lastElementId].color4 = rgbTo565(255, 255, 0);
+  UIElements[lastElementId].color5 = rgbTo565(255, 175, 0);
+  UIElements[lastElementId].color6 = rgbTo565(255, 0, 0);
   UIElements[lastElementId].type = "progressbar";
   UIElements[lastElementId].layer = layer;
   int k_ = round(UIElements[lastElementId].width / Char2Width) - 1;
@@ -645,12 +647,16 @@ void UIDrawProgressbar(int UIEId) {
     int w = round(v * (UIElements[UIEId].width - 2)) / 100;
     int c;
     M5.Lcd.drawRect(UIElements[UIEId].x, (UIElements[UIEId].y + 18), UIElements[UIEId].width, 32, UIElements[UIEId].colorB);
-    if (v > 79)
+    if (v > 60)
+      c = UIElements[UIEId].color6; 
+    else if (v > 50)
+      c = UIElements[UIEId].color5; 
+    else if (v > 40)
       c = UIElements[UIEId].color4; 
-    else if (v > 29)
+    else if (v > 30)
       c = UIElements[UIEId].color3; 
-    else if (v > 14)
-      c = UIElements[UIEId].color2; 
+    else if (v > 20)
+      c = UIElements[UIEId].color2;
     else
       c = UIElements[UIEId].color;
     if (v >= 100)
