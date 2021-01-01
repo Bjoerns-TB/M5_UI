@@ -35,6 +35,8 @@ struct UIElement
   int color2;
   int color3;
   int color4;
+  int color5;
+  int color6;
   int etcInt;
   int etcInt2;
   int etcInt3;
