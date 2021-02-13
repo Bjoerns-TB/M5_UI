@@ -200,7 +200,7 @@ void UIEraseLayer() {
 void UIController(void *pvParameters) {
   while (true)
   {
-    if (digitalRead(KEYBOARD_INT) == LOW) {
+/*     if (digitalRead(KEYBOARD_INT) == LOW) {
       Wire.requestFrom(KEYBOARD_I2C_ADDR, 1);  
       while (Wire.available())
       {
@@ -218,7 +218,7 @@ void UIController(void *pvParameters) {
           //M5.Lcd.printf("0x%02X ",key_val);
         }
       }
-    }
+    } */
     if (button(ButtonA))
     {
     	UITab(); // TAB
