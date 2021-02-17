@@ -145,7 +145,7 @@ void UIBegin() {
   }
   M5.Lcd.fillScreen(rgbTo565(255, 255, 255));
   xTaskCreatePinnedToCore(UIContollerSubThread, "UIContollerSubThread", 1024, NULL, 1, NULL, 0);
-  xTaskCreatePinnedToCore(UIController, "UIController", 4096, NULL, 2, NULL, 0); 
+  //xTaskCreatePinnedToCore(UIController, "UIController", 4096, NULL, 2, NULL, 0); 
 }
 
 void UIUpdate() {
