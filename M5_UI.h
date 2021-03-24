@@ -74,7 +74,7 @@ void UISet(String*, int);
 //void UILabel(String, String, String);
 void UIDisable(bool, String*);
 void UIOption(String, String, String*);
-String UIOptionValue(String*);
+//String UIOptionValue(String*);
 void UICaption(String, String*);
 void UIIcon(uint16_t*, String*);
 void UIInputboxCallout(int, char);
