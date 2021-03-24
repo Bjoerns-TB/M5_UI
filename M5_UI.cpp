@@ -407,17 +407,17 @@ void UIOption(String label, String value, String* root) {
   *root += (label + (char)0x1F + value + (char)0x1F + selected + (char)0x1F + (char)0x1E);
 }
 
-String UIOptionValue(String* rootVar) {
-	int optionsCount = cntChar(*rootVar, (char)0x1E);
-    for (int i = 0; i < optionsCount; i++)
-    {
-      String selected = parseString(2, (char)0x1F, parseString(i, (char)0x1E, *rootVar));
-      if (selected == "true")
-      {
-        return parseString(1, (char)0x1F, parseString(i, (char)0x1E, *rootVar));
-      }
-    }
-}
+//String UIOptionValue(String* rootVar) {
+//	int optionsCount = cntChar(*rootVar, (char)0x1E);
+//    for (int i = 0; i < optionsCount; i++)
+//    {
+//      String selected = parseString(2, (char)0x1F, parseString(i, (char)0x1E, *rootVar));
+//      if (selected == "true")
+//      {
+//        return parseString(1, (char)0x1F, parseString(i, (char)0x1E, *rootVar));
+//      }
+//    }
+//}
 
 void UICaption(String caption, String* rootVar) {
   for (int i = 0; i < UIElementsSize; i++)
@@ -756,7 +756,7 @@ void UIDrawSelectbox(int UIEId) {
     M5.Lcd.setCursor((UIElements[UIEId].x + 10), (UIElements[UIEId].y + 28));
     String caption = "";
     int optionsCount = cntChar(*UIElements[UIEId].rootVar, (char)0x1E);
-    int selectedId = 0;
+    //int selectedId = 0;
     for (int i = 0; i < optionsCount; i++)
     {
       String selected = parseString(2, (char)0x1F, parseString(i, (char)0x1E, *UIElements[UIEId].rootVar));
